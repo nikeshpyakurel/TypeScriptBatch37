@@ -148,3 +148,70 @@ acc.deposit(2000)
 acc.withdraw(100)
 acc.checkBalance()
 const nicacc = new Bank(3000);
+
+
+
+
+
+class Person {
+    constructor(public name:string, public age:number){}
+
+    introduce():void{
+        console.log(`Hello my name is ${this.name} and 
+            my age is ${this.age}`)
+    }
+}
+
+class Student extends Person{
+    constructor(name:string,age:number,public studentId:number){
+        super(name,age)
+    }
+    introduce(): void {
+        console.log(`Hi my name is ${this.name} and 
+            my student id is ${this.studentId}`)
+    }
+
+    learning():void{
+        console.log(`Student with student id ${this.studentId} 
+            is learning TypeScript`)
+    }
+}
+
+const ram = new Student("Ram Sharma",9800000000,230016)
+const shyam= new Person("Shyam Sharma",9800000000)
+ram.introduce()
+ram.learning()
+shyam.introduce()
+
+
+
+class Animal {
+    makeSound():void{
+        console.log("Sound Of Some Animal")
+    }
+}
+
+class Dog extends Animal{
+    makeSound(): void {
+        console.log("Dog: Bhau Bhau !!")
+    }
+}
+
+class Cat extends Animal{
+    makeSound(): void {
+        console.log("Cat: Meo Meo !!")
+    }
+}
+
+class Cow extends Animal{
+    makeSound(): void {
+        console.log("Cow: Boooo Boooo !!")
+    }
+}
+
+const pets: Animal[] = [new Dog(), new Cat() , new Cow()];
+
+pets.map((animal)=>{
+    animal.makeSound()
+})
+
