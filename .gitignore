@@ -1,5 +1,5 @@
-app.d.*
-app.js
-app.js.map
+*.d.*
+*.js
+*.js.map
 node_modules
 tsconfig.json
