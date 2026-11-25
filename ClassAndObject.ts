@@ -84,3 +84,67 @@ const cal= new Clac(2,30.5, 8)
 cal.summary();
 
 
+
+class StudentCard{
+    private pin:number
+    public  name:string
+    constructor(pin:number, name:string){
+        this.pin=pin
+        this.name=name
+    }
+
+    checkPin(enterPin:number): boolean{
+        return enterPin===this.pin
+    }
+}
+
+const student = new StudentCard(1234,"Ramesh")
+
+
+console.log(`THe name of student is ${student.name}`)
+if(student.checkPin(1234)){
+    console.log(`${student.name} enterd the coorect pin.`)
+}else{
+    console.log(`${student.name} enterd the wrong pin`)
+}
+
+
+
+
+class Bank{
+    constructor(private accountBalance:number){
+        this.accountBalance=accountBalance
+        console.log("Account Successfully opend !! Your Opeaning Balance is:"+this.accountBalance)
+    }
+    public deposit(amount:number):void{
+        if(amount>0){
+            this.accountBalance+=amount
+            console.log(`${amount} is deposited successfully. 
+                Your new balance is ${this.accountBalance}!`)
+        }
+        else{
+            console.log(`Deposit amout must be greater than 0`)
+        }
+    }
+    public withdraw(amount:number):void{
+        if(amount>0 && amount<=this.accountBalance){
+            this.accountBalance-=amount
+            console.log(`${amount} is Withdrawn successfully.
+                Your new balance is ${this.accountBalance}`)
+        }
+        else{
+            console.log(`Withdraw Amount must be equal or less 
+                than the total balance`)
+        }
+    }
+
+    public checkBalance():void{
+        console.log(`Your Balance is ${this.accountBalance}`)
+    }
+}
+
+const acc = new Bank(1000);
+acc.deposit(2000)
+acc.withdraw(100)
+acc.checkBalance()
+const nicacc = new Bank(3000);
